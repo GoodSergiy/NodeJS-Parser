@@ -3,7 +3,7 @@ NodeJS Parser just for the test
 
 ## Scope of work
 
-1. Make zip decomprecion
+1. Make zip decomprecion ✔
 2. Creat JSON file
 3. Read decompresed CSV file
 4. Pars all the data and put it to the JSON file
