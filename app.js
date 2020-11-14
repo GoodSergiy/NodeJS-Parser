@@ -6,7 +6,7 @@ const path = require('path')
 
 // Taking all zip and rename it ##### - This part works well
 
-try {
+try {    
     const data =  fs.readdirSync('./original_zips')
     console.log(data)
     data.forEach((file, i) => {
@@ -34,12 +34,12 @@ try {
                     fs.unlinkSync('./temp/'+ file, + i + '.zip', (err) => {
                         console.log('UnZiped')
                     })                           
-                } catch (error) {
-                    console.log(file + i + ' Was UnZipped')
-                }
-            })
+                } catch (error) {                    
+                    console.log(file + i + ' Was UnZipped')                    
+                }                    
+            })   
         })
-    })
+    })    
 } catch (err) {
     console.log('NOoooo')
 }

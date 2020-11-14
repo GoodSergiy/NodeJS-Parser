@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/GoodSergiy/NodeJS-Parser#readme",
   "dependencies": {
+    "csv-parser": "^2.3.3",
     "decompress": "^4.2.1",
     "fs-extra": "^9.0.1"
   }
