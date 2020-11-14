@@ -4,10 +4,11 @@ const zip = require('decompress')
 const fs = require('fs')
 const path = require('path')
 
-// Taking all zip and rename it
+// Taking all zip and rename it ##### - This part works well
 
-fs.readdir('./original_zips', (err, data) =>{
-    console.log(data);
+try {
+    const data =  fs.readdirSync('./original_zips')
+    console.log(data)
     data.forEach((file, i) => {
         console.log(file + ' ' + path.extname(file))
         let ext = path.extname(file)
@@ -17,11 +18,28 @@ fs.readdir('./original_zips', (err, data) =>{
             console.log('New name is ' + i + '.zip')
         }
     })
-})
+} catch (err) {
+    console.log('NO')
+}
 
-// Unzip - This part works well
+// Unzip ##### - This part works well
 
-// zip('original_zips/1.zip', 'original_zips').then(files => {
-//     console.log('done!');
-// });
-
+try {
+    const data = fs.readdirSync('./temp')
+    console.log(data);
+    data.forEach(file => {
+        zip('./temp/' + file, './CSV').then(files => {
+            data.forEach ((file, i) => {                
+                try {
+                    fs.unlinkSync('./temp/'+ file, + i + '.zip', (err) => {
+                        console.log('UnZiped')
+                    })                           
+                } catch (error) {
+                    console.log(file + i + ' Was UnZipped')
+                }
+            })
+        })
+    })
+} catch (err) {
+    console.log('NOoooo')
+}
