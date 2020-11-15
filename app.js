@@ -3,12 +3,13 @@ console.log('----------main app----------')
 const zip = require('decompress')
 const fs = require('fs')
 const path = require('path')
+const del = require("rimraf");
 
 // Taking all zip and rename it ##### - This part works well
 
 try {    
     const data =  fs.readdirSync('./original_zips')
-    console.log(data)
+    console.log(data)    
     data.forEach((file, i) => {
         console.log(file + ' ' + path.extname(file))
         let ext = path.extname(file)
@@ -39,7 +40,12 @@ try {
                 }                    
             })   
         })
-    })    
+    })
 } catch (err) {
     console.log('NOoooo')
 }
+
+
+setTimeout(() => {
+    console.log('timeout')
+}, 500)
