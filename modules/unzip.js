@@ -24,6 +24,10 @@ function renameall(){
                     console.log('The copy has been made')
                     console.log('New name is ' + i + '.zip')
                     console.log('--------------------------')
+                } else {
+                    console.log('#######################################################')
+                    console.log('OH NO! There is no ZIP file in the original_zips folder')
+                    console.log('#######################################################')
                 }
             })
         } catch (err) {
@@ -38,7 +42,7 @@ function unzip(){
     setTimeout(() =>{
         try {
             const data = fs.readdirSync('./temp')
-            console.log(data);
+            // console.log(data);
             data.forEach(file => {
                 zip('./temp/' + file, './CSV').then(files => {
                     data.forEach ((file, i) => {                

@@ -14,7 +14,7 @@ function cjs(){
     setTimeout(() => {
       try {    
           const parse =  fs.readdirSync('./CSV')
-          console.log(parse)    
+          // console.log(parse)    
           parse.forEach((file, i) => {
               console.log(file + ' ' + path.extname(file))
               let ext = path.extname(file)
@@ -25,7 +25,7 @@ function cjs(){
                 .pipe(csv({separator: '||'}))  // handle CSV with | separator
                 .on('data', (data) => results.push(data))
                 .on('end', () => {      
-                  // console.log(results);
+                  console.log(results);
                   fs.writeFileSync('./OutputJSON/'+ file +'.json', JSON.stringify(results),'utf-8',console.log('---------'), (err) => {
                       if (err) console.log('That is bad')
                   })
